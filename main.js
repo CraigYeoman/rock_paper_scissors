@@ -1,3 +1,6 @@
+let playerScore = 0
+let computerScore = 0
+
 function computerPlay() {
     const computerOptions = ['rock', 'paper', 'scissors']
     let computerSelection = computerOptions[Math.floor(Math.random() * computerOptions.length)];
@@ -11,6 +14,7 @@ function playRound(playerSelection, computerSelection) {
      if ((playerSelection === 'rock' && computerSelection === 'scissors') || 
          (playerSelection === 'paper' && computerSelection === 'rock') || 
          (playerSelection === 'scissors' && computerSelection === 'paper')) {
+         playerScore++    
          return 'You win!'
      }
 
@@ -21,19 +25,27 @@ function playRound(playerSelection, computerSelection) {
      else {((playerSelection == 'rock' && computerSelection == 'paper') 
      || (playerSelection == 'paper' && computerSelection == 'scissors') 
      || (playerSelection == 'scissors' && computerSelection == 'rock')) 
+        computerScore++
         return 'You lose :('
      }
      
 }
 
-const playerSelection = window.prompt('Rock, paper, or scissors?', '')
-console.log(playerSelection)
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection))
+console.log(game())
+
+
 
 function game() {
-    computerSelection
-    playerSelection
-    playRound(playerSelection, computerSelection)
-    console.log(playRound)
+    for (let i = 0; i < 6; i++) {
+        let playerSelection = window.prompt('Rock, paper, or scissors?', '')
+        console.log(playerSelection)
+        let computerSelection = computerPlay();
+        computerSelection
+        playerSelection
+        playRound(playerSelection, computerSelection)
+        console.log(playRound)
+        console.log(playerScore)
+        console.log(computerScore)
+    }
+
 }
