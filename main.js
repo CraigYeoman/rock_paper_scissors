@@ -48,5 +48,12 @@ function game() {
         console.log('Player score =', playerScore);
         console.log('Computer score =', computerScore);
     }
-
+    if (playerScore > computerScore) {
+        console.log('Player wins the game!');
+    } else if (playerScore == computerScore) {
+        console.log('Game ends in a tie!');
+    } else {
+        console.log('Computer wins game!');
+    }
+    return 'Refresh page to play again'
 }
