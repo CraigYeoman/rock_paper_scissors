@@ -15,18 +15,18 @@ function playRound(playerSelection, computerSelection) {
          (playerSelection === 'paper' && computerSelection === 'rock') || 
          (playerSelection === 'scissors' && computerSelection === 'paper')) {
          playerScore++    
-         return 'You win!'
+         console.log('You win the round!')
      }
 
      else if (playerSelection == computerSelection) {
-         return 'Tie!'
+        console.log('Tie!')
      }
 
      else {((playerSelection == 'rock' && computerSelection == 'paper') 
      || (playerSelection == 'paper' && computerSelection == 'scissors') 
      || (playerSelection == 'scissors' && computerSelection == 'rock')) 
         computerScore++
-        return 'You lose :('
+        console.log('You lose the round:(')
      }
      
 }
@@ -36,14 +36,13 @@ console.log(game())
 
 
 function game() {
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i <= 5; i++) {
         let playerSelection = window.prompt('Rock, paper, or scissors?', '')
         console.log(playerSelection)
         let computerSelection = computerPlay();
         computerSelection
         playerSelection
         playRound(playerSelection, computerSelection)
-        console.log(playRound)
         console.log(playerScore)
         console.log(computerScore)
     }
