@@ -4,7 +4,6 @@ let computerScore = 0
 function computerPlay() {
     const computerOptions = ['rock', 'paper', 'scissors']
     let computerSelection = computerOptions[Math.floor(Math.random() * computerOptions.length)];
-    console.log(computerSelection)
     return computerSelection
 }
 
@@ -36,15 +35,18 @@ console.log(game())
 
 
 function game() {
-    for (let i = 0; i <= 5; i++) {
-        let playerSelection = window.prompt('Rock, paper, or scissors?', '')
-        console.log(playerSelection)
+    for (let i = 1; i <= 5; i++) {
+        let round = i;
+        console.log('Round', round);
+        let playerSelection = window.prompt('Rock, paper, or scissors?', '');
+        console.log('Player choice =',playerSelection);
         let computerSelection = computerPlay();
-        computerSelection
-        playerSelection
-        playRound(playerSelection, computerSelection)
-        console.log(playerScore)
-        console.log(computerScore)
+        console.log('Computer choice =', computerSelection);
+        computerSelection;
+        playerSelection;
+        playRound(playerSelection, computerSelection);
+        console.log('Player score =', playerScore);
+        console.log('Computer score =', computerScore);
     }
 
 }
