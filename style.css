@@ -37,7 +37,7 @@ body {
     font-weight: bolder;
 }
 
-.choices {
+.player-choices {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,14 +50,11 @@ body {
     text-align: center;
 }
 
-.choice img {
+.btn {
     width: 100px;
     height: 100px;
-    border-radius: 8px;
-    border: #ffffff;
-    border-width: 3px;
-    border-style: solid;
 }
+
 
 .score-board {
     display: flex;
