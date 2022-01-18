@@ -110,3 +110,19 @@ body {
     border-width: 3px;
     border-style: solid;
 }
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    width: 200px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 35%;
+    left: 50%;
+    background-color: #1F2937;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+modal.active
