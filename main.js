@@ -16,10 +16,17 @@ buttons.forEach((button) => {
         console.log('Computer score =', computerScore);
         playerScoreBoard(playerScore);
         computerScoreBoard(computerScore);
+
         if (playerScore == 5) {
             console.log('Player wins the game!');
+            removeInfo();
+            newInfo.textContent = 'Player wins the game!';
+            infoTitle.appendChild(newInfo);
         } else if (computerScore == 5) {
             console.log('Computer wins the game!');
+            removeInfo();
+            newInfo.textContent = 'Computer wins the game!';
+            infoTitle.appendChild(newInfo);
         }
     });
 });
@@ -27,7 +34,6 @@ buttons.forEach((button) => {
 function computerPlay() {
     const computerOptions = ['rock', 'paper', 'scissors']
     let computerSelection = computerOptions[Math.floor(Math.random() * computerOptions.length)];
-    
     return computerSelection;
 }
 
@@ -73,8 +79,6 @@ function playerPicture(playerSelection) {
 }
 
 function playerScoreBoard(playerScore) {
-
-
     const playerScoreRemove = document.getElementById("player-Score");
     playerScoreRemove.remove();
     
@@ -87,7 +91,6 @@ function playerScoreBoard(playerScore) {
 }
 
 function computerScoreBoard(computerScore) {
-
     const computerScoreRemove = document.getElementById("computer-Score");
     computerScoreRemove.remove();
     
@@ -99,50 +102,38 @@ function computerScoreBoard(computerScore) {
     computerPoints.appendChild(points);
 }
 
-function playRound(playerSelection, computerSelection) {
-     if ((playerSelection === 'rock' && computerSelection === 'scissors') || 
-         (playerSelection === 'paper' && computerSelection === 'rock') || 
-         (playerSelection === 'scissors' && computerSelection === 'paper')) {
-         playerScore++    
-         console.log('You win the round!')
-     }
-
-     else if (playerSelection == computerSelection) {
-        console.log('Tie!')
-     }
-
-     else {((playerSelection == 'rock' && computerSelection == 'paper') 
-     || (playerSelection == 'paper' && computerSelection == 'scissors') 
-     || (playerSelection == 'scissors' && computerSelection == 'rock')) 
-        computerScore++
-        console.log('You lose the round:(')
-     }
-     
+const infoTitle = document.querySelector('#info-title');
+const newInfo = document.createElement('div');
+function removeInfo(){
+    const informationRemove = document.getElementById("info-replace");
+    informationRemove.remove();
+    newInfo.classList.add('sign');
+    newInfo.id = 'info-replace';
 }
 
-//console.log(game())
 
-
-function game() {
-    for (let i = 1; i <= 5; i++) {
-        let round = i;
-        console.log('Round', round);
-        let playerSelection = window.prompt('Rock, paper, or scissors?', '');
-        console.log('Player choice =',playerSelection);
-        let computerSelection = computerPlay();
-        console.log('Computer choice =', computerSelection);
-        computerSelection;
-        playerSelection;
-        playRound(playerSelection, computerSelection);
-        console.log('Player score =', playerScore);
-        console.log('Computer score =', computerScore);
-    }
-    if (playerScore > computerScore) {
-        console.log('Player wins the game!');
-    } else if (playerScore == computerScore) {
-        console.log('Game ends in a tie!');
-    } else {
-        console.log('Computer wins game!');
-    }
-    return 'Refresh page to play again'
+function playRound(playerSelection, computerSelection) {
+    
+    if ((playerSelection === 'rock' && computerSelection === 'scissors') || 
+        (playerSelection === 'paper' && computerSelection === 'rock') || 
+        (playerSelection === 'scissors' && computerSelection === 'paper')) {
+        playerScore++;    
+        console.log('You win the round!');
+        removeInfo();
+        newInfo.textContent = 'You win the round!';
+        infoTitle.appendChild(newInfo);
+    } else if (playerSelection == computerSelection) {
+        console.log('Tie!');
+        removeInfo();
+        newInfo.textContent = 'Tie!';
+        infoTitle.appendChild(newInfo);
+    } else {((playerSelection == 'rock' && computerSelection == 'paper') || 
+        (playerSelection == 'paper' && computerSelection == 'scissors') ||
+        (playerSelection == 'scissors' && computerSelection == 'rock')) 
+        computerScore++;
+        removeInfo();
+        console.log('You lose the round:(');
+        newInfo.textContent = 'You lose the round!';
+        infoTitle.appendChild(newInfo);
+    }   
 }
