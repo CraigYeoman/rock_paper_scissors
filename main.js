@@ -1,7 +1,13 @@
 let playerScore = 0
 let computerScore = 0
+let gameWinner = ''
 
 const buttons = document.querySelectorAll('button');
+
+// getElementById
+
+const playerPick = document.getElementById('player');
+const computerPick = document.getElementById('computer');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -49,7 +55,7 @@ function computerPicture(computerSelection) {
     const computerRemove = document.getElementById("computer-Remove");
     computerRemove.remove();
     
-    let computerPick = document.querySelector('#computer');
+    
     let picks = document.createElement('div');
     picks.classList.add('sign');
     picks.id = 'computer-Remove';
@@ -70,7 +76,7 @@ function playerPicture(playerSelection) {
     const playerRemove = document.getElementById("player-Remove");
     playerRemove.remove();
     
-    let playerPick = document.querySelector('#player');
+    
     let picks = document.createElement('div');
     picks.classList.add('sign');
     picks.id = 'player-Remove';
@@ -136,4 +142,18 @@ function playRound(playerSelection, computerSelection) {
         newInfo.textContent = 'You lose the round!';
         infoTitle.appendChild(newInfo);
     }   
+}
+
+const modal = document.getElementById("endGameModal");
+const modalText = document.getElementById("endGameMessage");
+
+function modalTransition() {
+    endGameModal.classList.add('activate');
+    modalText.textContent = 'Wins the game';
+}
+
+function restartGame() {
+    playerScore = 0
+    computerScore = 0
+
 }
