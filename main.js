@@ -2,19 +2,37 @@ let playerScore = 0
 let computerScore = 0
 let gameWinner = ''
 
+<<<<<<< HEAD
 const buttons = document.querySelectorAll('button');
 
+=======
+
+const playerOptions = document.getElementById('player-options');
+const buttons = playerOptions.querySelectorAll('button');
+const restartButton = document.getElementById('restart-button');
+>>>>>>> main
 // getElementById
 
 const playerPick = document.getElementById('player');
 const computerPick = document.getElementById('computer');
+<<<<<<< HEAD
+=======
+const modal = document.getElementById("endGameModal");
+const modalText = document.getElementById("endGameMessage");
+
+restartButton.addEventListener('click', restartGame)
+>>>>>>> main
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let playerSelection = button.id;        
+<<<<<<< HEAD
         console.log(playerSelection);
         let computerSelection = computerPlay();
         console.log(computerSelection);
+=======
+        let computerSelection = computerPlay();
+>>>>>>> main
         playerPicture(playerSelection);
         computerPicture(computerSelection);
         playRound(playerSelection, computerSelection);
@@ -28,11 +46,21 @@ buttons.forEach((button) => {
             removeInfo();
             newInfo.textContent = 'Player wins the game!';
             infoTitle.appendChild(newInfo);
+<<<<<<< HEAD
+=======
+            gameWinner = 'Player'
+            modalTransition();
+>>>>>>> main
         } else if (computerScore == 5) {
             console.log('Computer wins the game!');
             removeInfo();
             newInfo.textContent = 'Computer wins the game!';
             infoTitle.appendChild(newInfo);
+<<<<<<< HEAD
+=======
+            gameWinner = 'Computer'
+            modalTransition();
+>>>>>>> main
         }
     });
 });
@@ -143,6 +171,7 @@ function playRound(playerSelection, computerSelection) {
         infoTitle.appendChild(newInfo);
     }   
 }
+<<<<<<< HEAD
 
 const modal = document.getElementById("endGameModal");
 const modalText = document.getElementById("endGameMessage");
@@ -156,4 +185,19 @@ function restartGame() {
     playerScore = 0
     computerScore = 0
 
+=======
+
+function modalTransition() {
+    endGameModal.classList.add('activate');
+    modalText.textContent = gameWinner, 'wins the game';
+}
+
+function restartGame() {
+    playerScore = 0
+    computerScore = 0
+    endGameModal.classList.remove('activate');
+    computerRemove.remove();
+    playerRemove.remove();
+    gameWinner = ''
+>>>>>>> main
 }
