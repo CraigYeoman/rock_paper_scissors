@@ -1,9 +1,84 @@
 <!DOCTYPE html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="header">
+        <div class="title">
+            Rock Paper Scissors
+        </div>
+    </div>
+
+    <div class="info" id="info-title">
+        <div class="info-2">
+            First to score 5 points wins the game
+        </div>
+        <div class="info-3" id="info-replace">
+            Pick an option
+        </div>
+    </div>
+
+    <div class="score-board">
+        <div class="scores" id="player-Board">
+            <div class="text">Player Score</div>
+            <div class="hi" id="player-Score">
+                <img src="" alt="" style="background-color: #536e94;">
+            </div>
+        </div>
+        <div class="scores" id="computer-Board">
+            <div class="text">Computer Score</div>
+            <div class="hi" id="computer-Score">
+                <img src="" alt="" style="background-color: #536e94;">
+            </div>
+        </div>
+    </div>
+
+    <div class="picks">
+        <div class="pick" id="player">
+            <div class="text">Player Choice</div>
+            <div class="hi" id="player-Remove">
+                <img src="" alt="" style="background-color: #536e94;">
+            </div>
+        </div>
+        <div class="pick" id="computer">
+            <div class="text">Computer Choice</div>
+            <div class="hi" id="computer-Remove">
+                <img src="" alt="" style="background-color: #536e94;">
+            </div>
+        </div>
+    </div>
+    <div class="info-2">Options</div>
+    <div class="player-choices"  id="player-options">
+        
+            <div class="option">
+                <button class="btn" id="rock">
+                    <div class="sign">🪨</div>
+                </button>
+            
+                <div class="text">Rock</div>
+            </div>
+            <div class="option">
+                <button class="btn" id="paper">
+                    <div class="sign">🧾</div>
+                </button>
+                <div class="text">Paper</div>
+            </div>
+            <div class="option">
+                <button class="btn" id="scissors">
+                    <div class="sign">✂️</div>
+                </button>
+                <div class="text">Scissors</div>
+            </div>
+        
+    </div>
+    <div class="modal" id="endGameModal">
+        <p class="modal-heading" id="endGameMessage"></p>
+        <button class="button-restart" id="restart-button">Replay</button>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
