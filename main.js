@@ -12,8 +12,9 @@ const playerPick = document.getElementById('player');
 const computerPick = document.getElementById('computer');
 const infoTitle = document.getElementById('info-title');
 const newInfo = document.createElement('div');
-const modal = document.getElementById("endGameModal");
+const modal = document.getElementById('endGameModal');
 const modalText = document.getElementById("endGameMessage");
+const backGroundModal = document.getElementById('modalBackground');
 const scorePlayer = document.getElementById('player-score');
 const scoreComputer = document.getElementById('computer-score');
 const computerChoice = document.getElementById('computer-choice');
@@ -86,20 +87,22 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection == 'paper' && computerSelection == 'scissors') ||
         (playerSelection == 'scissors' && computerSelection == 'rock')) 
         computerScore++;
-        directionsInformation.textContent = 'You lose the round:(';
+        directionsInformation.textContent = 'You lose the round :(';
     }   
 }
 
 function modalTransition() {
+    backGroundModal.classList.add('activate');
     endGameModal.classList.add('activate');
-    modalText.textContent = gameWinner, 'wins the game';
+    
+    modalText.textContent = gameWinner + ' wins the game';
 }
 
 function restartGame() {
     playerScore = 0;
     computerScore = 0;
     gameWinner = '';
-
+    backGroundModal.classList.remove('activate');
     endGameModal.classList.remove('activate');
     computerChoice.textContent = ''
     playerChoice.textContent = ''
